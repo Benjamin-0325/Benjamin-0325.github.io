@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/BT3-Flat" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/Casper2Pelican" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/Flex" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/MinimalXY" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/Nuja" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/Papyrus" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/Responsive-Pelican" vcs="Git" />
+  </component>
+</project>
