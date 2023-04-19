@@ -104,7 +104,21 @@
             <div class="col-full blog-content__main">
                 <h1 id="why-pelican">Why Pelican?</h1>
 <p>主要的原因是我是寫python起家的，如此親切的東西怎麼能不用呢？（其實是懶啦，不論是設計主題或是套用模板等都要打一堆東西好累😂）</p>
-<p>總之，<a href="https://getpelican.com">pelican</a>是一個用python寫的靜態網頁生成器，可以幫我們把markdown file、reStructedText、甚至是jupyter notebook轉成靜態的HTML文檔案（是不是非常方便），而且靜態網頁的優點就是我們不需要網站伺服器或是ㄐㄧㄢ建立資料庫管理建立資料庫管理內容，可以把HTML檔案host在想要的地方，像是Github Pages。而除了上述優點外，選擇pelican</p>
+<p>總之，<a href="https://getpelican.com">Pelican</a>是一個用python寫的靜態網頁生成器，可以幫我們把markdown file、reStructedText、甚至是jupyter notebook轉成靜態的HTML文檔案（是不是非常方便），而且靜態網頁的優點就是我們不需要網站伺服器或是建立資料庫管理建立資料庫管理內容，可以把HTML檔案host在想要的地方，像是Github Pages。而除了上述優點外，選擇Pelican的因素還有以下幾點：</p>
+<ul>
+<li>Pelican很容易客製化</li>
+<li>主題是使用Jinja2模組建立，自由度高</li>
+</ul>
+<p>如果有類似需求，那麼恭喜你，你來對地方了。本篇將會詳細介紹如何使用Pelican建立屬於自己的部落格（或網站）</p>
+<p>Let&rsquo;s Start! 🎉</p>
+<h1 id="initial-setup">Initial Setup</h1>
+<p>首先，我們可以按照<a href="https://docs.getpelican.com/en/latest/quickstart.html">Pelican&rsquo;s Quickstart</a>的步驟，進行初始化的步驟。</p>
+<p>在預先建立好的虛擬環境（pyenv或anaconda之類的）下安裝Pelican並執行</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>TheNewBlog
+<span class="nb">cd</span><span class="w"> </span>TheNewBlog
+pelican-quickstart
+</code></pre></div>
+<p>這邊我先設定成只在本地端執行，所以先不探討要用哪種途徑部署網頁。若想了解如何使用Github Pages公開，可以跳至</p>
                 <p class="blog-content__tags">
                     <span>Post Tags</span>
 
