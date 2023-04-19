@@ -35,11 +35,13 @@
     ================================================== -->
     <script src="./theme/js/modernizr.js"></script>
     <script src="./theme/js/pace.min.js"></script>
+    <script type="text/javascript" async src="https://benkiller.disqus.com/embed.js"></script>
+    <script async id="dsq_recs_scr" src="https://benkiller.disqus.com/recommendations.js"></script>
 
     <!-- favicons
     ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./theme/images/Logo_.png" type="image/x-icon">
+    <link rel="icon" href="./theme/images/Logo_.png" type="image/x-icon">
 
 </head>
 <body id="top">
@@ -264,6 +266,17 @@
     <script src="./theme/js/jquery-3.2.1.min.js"></script>
     <script src="./theme/js/plugins.js"></script>
     <script src="./theme/js/main.js"></script>
+<!--    <script src="./theme/js/disqus.html"></script>-->
+<script type="text/javascript">
+    var disqus_shortname = 'benkiller';
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.async = true;
+        dsq.type = 'text/javascript';
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementByTagName('HEAD')[0] || document.getElementByTagName('BODY')[0]).appendChild(dsq);
+    }());
+</script>
 
 </body>
 </html>
