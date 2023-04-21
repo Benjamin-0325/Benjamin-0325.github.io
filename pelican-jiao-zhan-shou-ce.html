@@ -91,9 +91,9 @@
                 <article class="col-full">
                     <div class="page-header__info">
                         <div class="page-header__cat">
-                                <a href="./tag/Pelican">Pelican</a>
-                                <a href="./tag/Python">Python</a>
-                                <a href="./tag/Static Website">Static Website</a>
+                                <a href="./tag/Pelican.html">Pelican</a>
+                                <a href="./tag/Python.html">Python</a>
+                                <a href="./tag/Static Website.html">Static Website</a>
                         </div>
                     </div>
                     <h1 class="page-header__title">
@@ -132,7 +132,63 @@
 <span class="nb">cd</span><span class="w"> </span>TheNewBlog
 pelican-quickstart
 </code></pre></div>
-<p>這邊我先設定成只在本地端執行，所以先不探討要用哪種途徑部署網頁。若想了解如何使用Github Pages公開，可以跳至</p>
+<p>這邊我先設定成只在本地端執行，所以先不探討要用哪種途徑部署網頁。若想了解如何使用Github Pages公開，可以跳至<a href="#Deployment">Deployment</a>查看。</p>
+<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>Where<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>your<span class="w"> </span>new<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span><span class="o">[</span>.<span class="o">]</span><span class="w"> </span>
+&gt;<span class="w"> </span>What<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>the<span class="w"> </span>title<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span>BenKiller
+&gt;<span class="w"> </span>Who<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>the<span class="w"> </span>author<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span>Benjamin<span class="w"> </span>Chen
+&gt;<span class="w"> </span>What<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>language<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span><span class="o">[</span>en<span class="o">]</span><span class="w"> </span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>specify<span class="w"> </span>a<span class="w"> </span>URL<span class="w"> </span>prefix?<span class="w"> </span>e.g.,<span class="w"> </span>https://example.com<span class="w">   </span><span class="o">(</span>Y/n<span class="o">)</span><span class="w"> </span>n
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>article<span class="w"> </span>pagination?<span class="w"> </span><span class="o">(</span>Y/n<span class="o">)</span><span class="w"> </span>
+&gt;<span class="w"> </span>How<span class="w"> </span>many<span class="w"> </span>articles<span class="w"> </span>per<span class="w"> </span>page<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>want?<span class="w"> </span><span class="o">[</span><span class="m">10</span><span class="o">]</span><span class="w"> </span><span class="m">3</span>
+&gt;<span class="w"> </span>What<span class="w"> </span>is<span class="w"> </span>your<span class="w"> </span><span class="nb">time</span><span class="w"> </span>zone?<span class="w"> </span><span class="o">[</span>Europe/Paris<span class="o">]</span><span class="w"> </span>Asia/Taipei
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>generate<span class="w"> </span>a<span class="w"> </span>tasks.py/Makefile<span class="w"> </span>to<span class="w"> </span>automate<span class="w"> </span>generation<span class="w"> </span>and<span class="w"> </span>publishing?<span class="w"> </span><span class="o">(</span>Y/n<span class="o">)</span><span class="w"> </span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>FTP?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>SSH?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>Dropbox?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>S3?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>Rackspace<span class="w"> </span>Cloud<span class="w"> </span>Files?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>
+&gt;<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>your<span class="w"> </span>website<span class="w"> </span>using<span class="w"> </span>GitHub<span class="w"> </span>Pages?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>
+Done.<span class="w"> </span>Your<span class="w"> </span>new<span class="w"> </span>project<span class="w"> </span>is<span class="w"> </span>available<span class="w"> </span>at<span class="w"> </span>/home/leo/devel/BenKiller
+</code></pre></div>
+<p>接著，執行<code>pelican -lr</code>便會開通默認的本地端網址<a href="http://127.0.0.1:8000/">http://127.0.0.1:8000</a>，於任意網頁瀏覽器訪問此網址將可看到使用默認主題呈現之部落格首頁。</p>
+<h1 id="demo-content">Demo Content</h1>
+<p>在我們開始認識如何使用Jinja2模組，我們先製作一些demo。這邊我準備了一個腳本檔，各位可以在終端機執行</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nv">NUM_POSTS</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">CONTENT_DIR</span><span class="o">=</span>content
+<span class="nv">LOREM_API</span><span class="o">=</span>https://jaspervdj.be/lorem-markdownum/markdown.txt
+<span class="nv">IMAGES_API</span><span class="o">=</span>https://placeimg.com/1000/341/animals
+
+rm<span class="w"> </span>-fR<span class="w"> </span>content
+mkdir<span class="w"> </span>-p<span class="w"> </span>content/images
+
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span>-w<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="si">${</span><span class="nv">NUM_POSTS</span><span class="si">}</span><span class="k">)</span>
+<span class="k">do</span>
+<span class="w">    </span><span class="nv">post_file</span><span class="o">=</span><span class="si">${</span><span class="nv">CONTENT_DIR</span><span class="si">}</span>/post<span class="si">${</span><span class="nv">i</span><span class="si">}</span>.md
+
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Creating post </span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Title: A sample article </span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">post_file</span><span class="si">}</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Date: 2023-04-</span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">post_file</span><span class="si">}</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Category: News"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">post_file</span><span class="si">}</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Tags: </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-R<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n3<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-r<span class="w"> </span>s,<span class="s2">"^"</span>,<span class="s2">"tag"</span>,<span class="w"> </span><span class="p">|</span><span class="w"> </span>paste<span class="w"> </span>-sd<span class="w"> </span><span class="s2">","</span><span class="w"> </span>-<span class="k">)</span><span class="s2">"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">post_file</span><span class="si">}</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Image: post</span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="s2">.jpg"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">post_file</span><span class="si">}</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Summary: Summary of post </span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">post_file</span><span class="si">}</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">post_file</span><span class="si">}</span>
+
+<span class="w">    </span>curl<span class="w"> </span>-s<span class="w"> </span><span class="si">${</span><span class="nv">LOREM_API</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-r<span class="w"> </span>s,<span class="s2">"^#"</span>,<span class="s2">"##"</span>,<span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">post_file</span><span class="si">}</span>
+
+<span class="w">    </span>curl<span class="w"> </span>-s<span class="w"> </span><span class="si">${</span><span class="nv">IMAGES_API</span><span class="si">}</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">CONTENT_DIR</span><span class="si">}</span>/images/post<span class="si">${</span><span class="nv">i</span><span class="si">}</span>.jpg
+<span class="k">done</span>
+</code></pre></div>
+<p>將此腳本檔存為<code>create_content.sh</code>並使用<code>chmod 775 create_content.sh</code>賦予其執行權限，此時便可以使用<code>./create_content.sh</code>執行此腳本檔，這將會創建10個markdown檔案以及對應的圖像（補充：可以無限次的執行此檔案，該行<code>rm -fR content</code>會刪除以前的輸出結果）</p>
+<p>若各位了解bash語法，請隨意修改腳本來進行客製化。現在讓我們帶著這些產生之markdown檔，移到下一步吧。</p>
+<h1 id="the-template">The Template</h1>
+<h1 id="nextprevious-page">Next/Previous Page</h1>
+<h1 id="deployment">Deployment</h1>
+<h1 id="message-board">Message Board</h1>
+<h1 id="mailing-form">Mailing Form</h1>
+<h1 id="google-analytics">Google Analytics</h1>
                 <p class="blog-content__tags">
                     <span>Post Tags</span>
 
