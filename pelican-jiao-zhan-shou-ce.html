@@ -125,6 +125,7 @@
 </ul>
 <p>如果有類似需求，那麼恭喜你，你來對地方了。本篇將會詳細介紹如何使用Pelican建立屬於自己的部落格（或網站）</p>
 <p>Let&rsquo;s Start! 🎉</p>
+<hr/>
 <h1 id="initial-setup">Initial Setup</h1>
 <p>首先，我們可以按照<a href="https://docs.getpelican.com/en/latest/quickstart.html">Pelican&rsquo;s Quickstart</a>的步驟，進行初始化的步驟。</p>
 <p>在預先建立好的虛擬環境（pyenv或anaconda之類的）下安裝Pelican並執行</p>
@@ -132,7 +133,7 @@
 <span class="nb">cd</span><span class="w"> </span>TheNewBlog
 pelican-quickstart
 </code></pre></div>
-<p>這邊我先設定成只在本地端執行，所以先不探討要用哪種途徑部署網頁。若想了解如何使用Github Pages公開，可以跳至<a href="#Deployment">Deployment</a>查看。</p>
+<p>這邊我先設定成只在本地端執行，所以先不探討要用哪種途徑部署網頁。若想了解如何使用Github Pages公開，可以跳至<a href="https://www.notion.so/Deployment-c13ff4627e8d40df951c137cb81b0f1f">Deployment</a>查看。</p>
 <div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>Where<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>your<span class="w"> </span>new<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span><span class="o">[</span>.<span class="o">]</span><span class="w"> </span>
 &gt;<span class="w"> </span>What<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>the<span class="w"> </span>title<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span>BenKiller
 &gt;<span class="w"> </span>Who<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>the<span class="w"> </span>author<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>web<span class="w"> </span>site?<span class="w"> </span>Benjamin<span class="w"> </span>Chen
@@ -151,6 +152,7 @@ pelican-quickstart
 Done.<span class="w"> </span>Your<span class="w"> </span>new<span class="w"> </span>project<span class="w"> </span>is<span class="w"> </span>available<span class="w"> </span>at<span class="w"> </span>/home/leo/devel/BenKiller
 </code></pre></div>
 <p>接著，執行<code>pelican -lr</code>便會開通默認的本地端網址<a href="http://127.0.0.1:8000/">http://127.0.0.1:8000</a>，於任意網頁瀏覽器訪問此網址將可看到使用默認主題呈現之部落格首頁。</p>
+<hr/>
 <h1 id="demo-content">Demo Content</h1>
 <p>在我們開始認識如何使用Jinja2模組，我們先製作一些demo。這邊我準備了一個腳本檔，各位可以在終端機執行</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
@@ -183,12 +185,109 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>content/images
 </code></pre></div>
 <p>將此腳本檔存為<code>create_content.sh</code>並使用<code>chmod 775 create_content.sh</code>賦予其執行權限，此時便可以使用<code>./create_content.sh</code>執行此腳本檔，這將會創建10個markdown檔案以及對應的圖像（補充：可以無限次的執行此檔案，該行<code>rm -fR content</code>會刪除以前的輸出結果）</p>
 <p>若各位了解bash語法，請隨意修改腳本來進行客製化。現在讓我們帶著這些產生之markdown檔，移到下一步吧。</p>
+<hr/>
 <h1 id="the-template">The Template</h1>
+<p>這邊我會廣泛使用<a href="https://docs.getpelican.com/en/latest/themes.html#creating-themes">https://docs.getpelican.com/en/latest/themes.html#creating-themes</a>上的文件，按個人使用上方便與否再選擇需不需要開啟這個頁面一併閱讀。</p>
+<p>以下教學我會使用本部落格所套用之主題&rdquo;<em><a href="https://styleshout.com/free-templates/hola/">Hola</a>&rdquo;</em>進行演示，想使用該主題者可以自行至網頁下載，當然，若不吝嗇給予此主題作者支持，可以幫作者點個讚👍🏻、分享➦或是給予署名費用💸</p>
+<p>在深入文章核心前，我們先快速查看一下該模板。我們可以在畫面頂部看到一個導覽列，包括連到主頁的鏈結、幾個特定頁面的鏈結。而點開主頁首先映入眼簾的是覆蓋整個頁面的人像背景以及簡短四行的介紹，另外還有兩個按鈕，另外還有兩個按鈕可以跳至下方內容。頁面右側有部落格主任之社群鏈結之圖示。接著往下看，依序可以看到介紹區塊，介紹該部落格以及具備些技術；工作經驗，一一顯現做過哪些工作；Portfolio，分享近期做過的專案；What people said，呈現各方對網頁的評論與意見；日誌，呈現近期的文章鏈結與大綱；達成數目，顯現各種已達成之數目；聯絡，包含聯絡資訊與寄送表單。該主題模板還包含其他頁面，這邊就不做介紹。</p>
+<p>大致上瀏覽過後，就可以開始著手進行修改。首先，按照<a href="https://docs.getpelican.com/en/latest/themes.html#structure">Pelican&rsquo;s requirements</a>的規則，將主題檔案目錄的佈局更改為：</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>static
+mv<span class="w"> </span>inc/<span class="w"> </span>static/
+mv<span class="w"> </span>js/<span class="w"> </span>static/
+mv<span class="w"> </span>css/<span class="w"> </span>static/
+mv<span class="w"> </span>fonts/<span class="w"> </span>static/
+mv<span class="w"> </span>images/<span class="w"> </span>static/
+mkdir<span class="w"> </span>templates
+mv<span class="w"> </span>*.html<span class="w"> </span>templates/
+</code></pre></div>
+<p>接著，編輯位在部落格的檔案根目錄的<code>pelicanconf.py</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">PATH</span> <span class="o">=</span> <span class="s1">'content'</span>
+
+<span class="n">THEME</span> <span class="o">=</span> <span class="s2">"Hola"</span>
+
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s2">"Asia/Taipei"</span>
+
+<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s1">'en'</span>
+</code></pre></div>
+<p>現在讓我們刷新一下部落格頁面吧～</p>
+<p>欸～是不是不如預期那般顯示精美的畫面？不用擔心，pelican仍然有正常運行，會出現此現象是因為我們正在使用<code>Hola/templates/index.html</code>覆蓋pelican的輸出，而pelican是使用Jinja模組運行的，因此單純的HTML&amp;CSS&amp;JS模板，僅能匯出靜態內容，需要借助Jinja使自定義模板與CSS/JS資源能正確加載。</p>
+<p>讓我們來學習第一個語法吧。將各個路徑更改為<code>{{ SITEURL }}/theme/</code>，這樣我們至少可以有一個好的輸出可以瀏覽。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="cm">&lt;!--[if lt IE 9 ]&gt;&lt;html class="no-js oldie" lang="en"&gt; &lt;![endif]--&gt;</span>
+<span class="cm">&lt;!--[if IE 9 ]&gt;&lt;html class="no-js oldie ie9" lang="en"&gt; &lt;![endif]--&gt;</span>
+<span class="cm">&lt;!--[if (gte IE 9)|!(IE)]&gt;&lt;!--&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">class</span><span class="o">=</span><span class="s">"no-js"</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="cm">&lt;!--&lt;![endif]--&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+
+            <span class="cm">&lt;!--- basic page needs</span>
+<span class="cm">            ================================================== --&gt;</span>
+                <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hola<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"description"</span> <span class="na">content</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"author"</span> <span class="na">content</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;</span>
+
+            <span class="cm">&lt;!-- mobile specific metas</span>
+<span class="cm">            ================================================== --&gt;</span>
+            <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+
+            <span class="cm">&lt;!-- CSS</span>
+<span class="cm">            ================================================== --&gt;</span>
+            <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ SITEURL }}/theme/css/base.css"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ SITEURL }}/theme/css/vendor.css"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ SITEURL }}/theme/css/main.css"</span><span class="p">&gt;</span>
+
+            <span class="cm">&lt;!-- script</span>
+<span class="cm">            ================================================== --&gt;</span>
+            <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"{{ SITEURL }}/theme/js/modernizr.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"{{ SITEURL }}/theme/js/pace.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+            <span class="cm">&lt;!-- favicons</span>
+<span class="cm">            ================================================== --&gt;</span>
+            <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"shortcut icon"</span> <span class="na">href</span><span class="o">=</span><span class="s">"favicon.ico"</span> <span class="na">type</span><span class="o">=</span><span class="s">"{{ SITEURL }}/theme/image/x-icon"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"icon"</span> <span class="na">href</span><span class="o">=</span><span class="s">"favicon.ico"</span> <span class="na">type</span><span class="o">=</span><span class="s">"{{ SITEURL }}/theme/image/x-icon"</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+[...]
+
+        <span class="cm">&lt;!-- Java Script</span>
+<span class="cm">    ================================================== --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"{{ SITEURL }}/theme/js/jquery-3.2.1.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"{{ SITEURL }}/theme/js/plugins.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"{{ SITEURL }}/theme/js/main.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>當然也要將所有出現的<code>images/</code>改為<code>{{ SITEURL }}/theme/images</code></p>
+<p>這個時候就能在畫面上看到完整的主題內容了🎉</p>
+<p>至於<code>{{ SITEURL }}/theme/images</code>是如何運作的？在Pelican的<a href="https://docs.getpelican.com/en/latest/settings.html#themes">Documentation on themes</a>提及，</p>
+<blockquote>
+<p><code>THEME_STATIC_DIR = &lsquo;theme&rsquo;</code>
+</p>
+<p>Destination directory in the output path where Pelican will place the files collected from THEME STATIC PATHS. Default is <em>theme.</em>
+</p>
+</blockquote>
+<p>變數<code>THEME_STATIC_PATHS</code>的default為<code>static</code>，這就是為什麼我們在一開始創建了那個目錄的原因。而正如各位所看到的，所有的這些路徑都是可自由配置的，如果各位有自己的習慣風格，可以自行更改喔。</p>
+<hr/>
+<h1 id="pelican-variables">Pelican Variables</h1>
+<p>正如前面所提到的，我們目前正在嘗試使用現成的靜態模板覆蓋pelican的輸出，而我們需要做的是將pelican能理解的&ldquo;值&rdquo;寫進模板當中，無論是靜態變量還是動態的項目如文章、標籤與圖像等等。</p>
+<p>Jinja2即是讓pelican的自由度非常高隻手要功臣，這是一個用python編寫並廣泛被使用的模板開發引擎，如果想要完全了解如何創建pelican主題，那麼學習jinja必不可少。好在jinja並不難，要掌握它並非難事。實際上，前面所使用的<code>pelicanconf.py</code>與 prefixed links <code>{{ SITEURL }}</code>便已經使用到pelican&rsquo;s variables 與 jinja模板了。</p>
+<p>那麼接下來，就讓我們一起認識一下pelican有哪些常用的變數吧</p>
+<p><em>Note! 若想更詳細的了解Jinja或有任何疑問，可以查閱 <a href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja documentation</a></em></p>
+<h2 id="title">Title</h2>
+<hr/>
+<h1 id="article-page_1">Article Page</h1>
+<h1 id="blog-page">Blog Page</h1>
 <h1 id="nextprevious-page">Next/Previous Page</h1>
 <h1 id="deployment">Deployment</h1>
 <h1 id="message-board">Message Board</h1>
 <h1 id="mailing-form">Mailing Form</h1>
 <h1 id="google-analytics">Google Analytics</h1>
+<h1 id="search-engine-optimisation">Search Engine Optimisation</h1>
                 <p class="blog-content__tags">
                     <span>Post Tags</span>
 
