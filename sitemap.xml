@@ -9,32 +9,37 @@
 
 <url>
   <loc>https://benkiller.com/</loc>
-  <lastmod>2023-04-21T06:12:56+00:00</lastmod>
+  <lastmod>2023-04-26T03:39:51+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://benkiller.com/index.html</loc>
-  <lastmod>2023-04-21T06:12:56+00:00</lastmod>
+  <lastmod>2023-04-26T03:39:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://benkiller.com/Resume%201.pdf</loc>
+  <lastmod>2023-04-26T03:39:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://benkiller.com/blog.html</loc>
-  <lastmod>2023-04-21T06:12:56+00:00</lastmod>
+  <lastmod>2023-04-26T03:39:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://benkiller.com/pelican-jiao-zhan-shou-ce.html</loc>
-  <lastmod>2023-04-21T06:12:56+00:00</lastmod>
+  <lastmod>2023-04-26T03:39:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://benkiller.com/author/benjamin-chen.html</loc>
-  <lastmod>2023-04-21T06:12:56+00:00</lastmod>
+  <lastmod>2023-04-26T03:39:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://benkiller.com/welcome.html</loc>
-  <lastmod>2023-04-21T06:12:57+00:00</lastmod>
+  <lastmod>2023-04-26T03:39:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
